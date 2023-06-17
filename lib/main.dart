@@ -1,11 +1,21 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:rocketspacex/config/routes/go_router_provider.dart';
 import 'package:rocketspacex/features/rocket/presentation/rocket_bloc/rocket_bloc.dart';
 import 'package:rocketspacex/injection.dart';
 
-void main() {
+void main() async{
   configureDependencies();
+  WidgetsFlutterBinding.ensureInitialized();
+  HydratedBloc.storage = await HydratedStorage.build(
+    storageDirectory: kIsWeb
+        ? HydratedStorage.webStorageDirectory
+        : await getTemporaryDirectory(),);
+
+  
   runApp(const MyApp());
 }
 

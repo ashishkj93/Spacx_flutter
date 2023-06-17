@@ -1,0 +1,129 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.rocketspacex"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+9        android:targetSdkVersion="33" />
+10    <!--
+11         The INTERNET permission is required for development. Specifically,
+12         the Flutter tool needs it to communicate with the running application
+13         to allow setting breakpoints, to provide hot reload, etc.
+14    -->
+15    <uses-permission android:name="android.permission.INTERNET" />
+15-->/Users/ashish_jaiswal/Flutter_Test/Spacx_flutter/android/app/src/main/AndroidManifest.xml:2:2-63
+15-->/Users/ashish_jaiswal/Flutter_Test/Spacx_flutter/android/app/src/main/AndroidManifest.xml:2:19-61
+16    <!-- #docregion android-queries -->
+17    <!-- Provide required visibility configuration for API level 30 and above -->
+18    <queries>
+18-->/Users/ashish_jaiswal/Flutter_Test/Spacx_flutter/android/app/src/main/AndroidManifest.xml:5:3-24:13
+19
+20        <!-- If your app checks for SMS support -->
+21        <intent>
+21-->/Users/ashish_jaiswal/Flutter_Test/Spacx_flutter/android/app/src/main/AndroidManifest.xml:7:5-10:14
+22            <action android:name="android.intent.action.VIEW" />
+22-->/Users/ashish_jaiswal/Flutter_Test/Spacx_flutter/android/app/src/main/AndroidManifest.xml:8:7-59
+22-->/Users/ashish_jaiswal/Flutter_Test/Spacx_flutter/android/app/src/main/AndroidManifest.xml:8:15-56
+23
+24            <data android:scheme="sms" />
+24-->/Users/ashish_jaiswal/Flutter_Test/Spacx_flutter/android/app/src/main/AndroidManifest.xml:9:7-36
+24-->/Users/ashish_jaiswal/Flutter_Test/Spacx_flutter/android/app/src/main/AndroidManifest.xml:9:13-33
+25        </intent>
+26        <!-- If your app checks for call support -->
+27        <intent>
+27-->/Users/ashish_jaiswal/Flutter_Test/Spacx_flutter/android/app/src/main/AndroidManifest.xml:12:5-15:14
+28            <action android:name="android.intent.action.VIEW" />
+28-->/Users/ashish_jaiswal/Flutter_Test/Spacx_flutter/android/app/src/main/AndroidManifest.xml:8:7-59
+28-->/Users/ashish_jaiswal/Flutter_Test/Spacx_flutter/android/app/src/main/AndroidManifest.xml:8:15-56
+29
+30            <data android:scheme="tel" />
+30-->/Users/ashish_jaiswal/Flutter_Test/Spacx_flutter/android/app/src/main/AndroidManifest.xml:9:7-36
+30-->/Users/ashish_jaiswal/Flutter_Test/Spacx_flutter/android/app/src/main/AndroidManifest.xml:9:13-33
+31        </intent>
+32        <!-- #enddocregion android-queries -->
+33        <!--
+34         The "https" scheme is only required for integration tests of this package.
+35         It shouldn't be needed in most actual apps, or show up in the README!
+36        -->
+37        <intent>
+37-->/Users/ashish_jaiswal/Flutter_Test/Spacx_flutter/android/app/src/main/AndroidManifest.xml:19:5-22:14
+38            <action android:name="android.intent.action.VIEW" />
+38-->/Users/ashish_jaiswal/Flutter_Test/Spacx_flutter/android/app/src/main/AndroidManifest.xml:8:7-59
+38-->/Users/ashish_jaiswal/Flutter_Test/Spacx_flutter/android/app/src/main/AndroidManifest.xml:8:15-56
+39
+40            <data android:scheme="https" />
+40-->/Users/ashish_jaiswal/Flutter_Test/Spacx_flutter/android/app/src/main/AndroidManifest.xml:9:7-36
+40-->/Users/ashish_jaiswal/Flutter_Test/Spacx_flutter/android/app/src/main/AndroidManifest.xml:9:13-33
+41        </intent>
+42        <!-- #docregion android-queries -->
+43    </queries>
+44
+45    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- #enddocregion android-queries -->
+45-->[:connectivity_plus] /Users/ashish_jaiswal/Flutter_Test/Spacx_flutter/build/connectivity_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-79
+45-->[:connectivity_plus] /Users/ashish_jaiswal/Flutter_Test/Spacx_flutter/build/connectivity_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:9:22-76
+46    <application
+47        android:name="android.app.Application"
+48        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+48-->[androidx.core:core:1.6.0] /Users/ashish_jaiswal/.gradle/caches/transforms-3/7e9df2ac2213a6bd3cef0f2f27870d79/transformed/core-1.6.0/AndroidManifest.xml:24:18-86
+49        android:debuggable="true"
+50        android:icon="@mipmap/ic_launcher"
+51        android:label="rocketspacex" >
+52        <activity
+53            android:name="com.example.rocketspacex.MainActivity"
+54            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+55            android:exported="true"
+56            android:hardwareAccelerated="true"
+57            android:launchMode="singleTop"
+58            android:theme="@style/LaunchTheme"
+59            android:windowSoftInputMode="adjustResize" >
+60
+61            <!--
+62                 Specifies an Android theme to apply to this Activity as soon as
+63                 the Android process has started. This theme is visible to the user
+64                 while the Flutter UI initializes. After that, this theme continues
+65                 to determine the Window background behind the Flutter UI.
+66            -->
+67            <meta-data
+68                android:name="io.flutter.embedding.android.NormalTheme"
+69                android:resource="@style/NormalTheme" />
+70
+71            <intent-filter>
+72                <action android:name="android.intent.action.MAIN" />
+73
+74                <category android:name="android.intent.category.LAUNCHER" />
+75            </intent-filter>
+76        </activity>
+77        <!--
+78             Don't delete the meta-data below.
+79             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+80        -->
+81        <meta-data
+82            android:name="flutterEmbedding"
+83            android:value="2" />
+84
+85        <activity
+85-->[:url_launcher_android] /Users/ashish_jaiswal/Flutter_Test/Spacx_flutter/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-13:74
+86            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
+86-->[:url_launcher_android] /Users/ashish_jaiswal/Flutter_Test/Spacx_flutter/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-74
+87            android:exported="false"
+87-->[:url_launcher_android] /Users/ashish_jaiswal/Flutter_Test/Spacx_flutter/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:12:13-37
+88            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+88-->[:url_launcher_android] /Users/ashish_jaiswal/Flutter_Test/Spacx_flutter/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-71
+89
+90        <uses-library
+90-->[androidx.window:window:1.0.0-beta04] /Users/ashish_jaiswal/.gradle/caches/transforms-3/25cee5f028ac2a6b79fd6278ff5b59e2/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:25:9-27:40
+91            android:name="androidx.window.extensions"
+91-->[androidx.window:window:1.0.0-beta04] /Users/ashish_jaiswal/.gradle/caches/transforms-3/25cee5f028ac2a6b79fd6278ff5b59e2/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:26:13-54
+92            android:required="false" />
+92-->[androidx.window:window:1.0.0-beta04] /Users/ashish_jaiswal/.gradle/caches/transforms-3/25cee5f028ac2a6b79fd6278ff5b59e2/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:27:13-37
+93        <uses-library
+93-->[androidx.window:window:1.0.0-beta04] /Users/ashish_jaiswal/.gradle/caches/transforms-3/25cee5f028ac2a6b79fd6278ff5b59e2/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:28:9-30:40
+94            android:name="androidx.window.sidecar"
+94-->[androidx.window:window:1.0.0-beta04] /Users/ashish_jaiswal/.gradle/caches/transforms-3/25cee5f028ac2a6b79fd6278ff5b59e2/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:29:13-51
+95            android:required="false" />
+95-->[androidx.window:window:1.0.0-beta04] /Users/ashish_jaiswal/.gradle/caches/transforms-3/25cee5f028ac2a6b79fd6278ff5b59e2/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:30:13-37
+96    </application>
+97
+98</manifest>

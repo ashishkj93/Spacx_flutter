@@ -1,7 +1,10 @@
 
+
+
 import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:rocketspacex/core/resources/data_state.dart';
 import 'package:rocketspacex/features/rocket/data/models/rockets/rockets.dart';
 import 'package:rocketspacex/features/rocket/domain/usecases/get_rocket.dart';
@@ -10,7 +13,7 @@ import 'package:rocketspacex/features/rocket/domain/usecases/get_rocket.dart';
 part 'rocket_event.dart';
 part 'rocket_state.dart';
 
-class RocketBloc extends Bloc<RocketEvent, RocketState> {
+class RocketBloc extends Bloc<RocketEvent, RocketState>  {
   final GetRocketuseCase getRocketuseCase;
   RocketBloc({required this.getRocketuseCase}) : super(const RocketLoading()) {
     on<GetRockets>(onGetRockets);
@@ -25,4 +28,6 @@ class RocketBloc extends Bloc<RocketEvent, RocketState> {
       emit(RocketError(dataState.dioError!));
     }
   }
+  
+
 }

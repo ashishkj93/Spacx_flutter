@@ -2,6 +2,7 @@
 import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:rocketspacex/core/resources/data_state.dart';
 import 'package:rocketspacex/features/rocket/data/models/rockets/rockets.dart';
 import 'package:rocketspacex/features/rocket/domain/usecases/get_rocket_details.dart';
@@ -23,8 +24,11 @@ class RocketDetailsBloc extends Bloc<RocketDetailsEvent, RocketDetailsState> {
     if (dataState is DataSuccess && dataState.data!=null) {
       emit(RocketDetailsSuccess(dataState.data!));
     }
-    if (dataState is DataFailed) {
+     if (dataState is DataFailed) {
       emit(RocketDetailsError(dataState.dioError!));
     }
   }
+  
+  
+
 }

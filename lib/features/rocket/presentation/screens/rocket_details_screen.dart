@@ -21,13 +21,16 @@ class RocketDetailsScreen extends StatelessWidget {
           sl<RocketDetailsBloc>()..add(GetRocketDetails(id: id)),
       child: Scaffold(
         appBar: AppBar(),
-        body: BlocBuilder<RocketDetailsBloc, RocketDetailsState>(
-          builder: (context, state) {
+        body: BlocConsumer<RocketDetailsBloc, RocketDetailsState>(
+          listener: (context, state) {
+             if(state is RocketDetailsError){
+               ScaffoldMessenger.of(context).showSnackBar( SnackBar(content: Text(state.dioException!.error.toString())));
+            }
+          },
+          builder: (context,  RocketDetailsState state) {
             if(state is RocketDetailsLoading) {
               return const Center(child:CircularProgressIndicator(strokeWidth: 1.5,));
-            } else if(state is RocketDetailsError){
-              return Text(state.dioException!.error.toString());
-            }
+            } 
             else if(state is RocketDetailsSuccess){
               return  Column(
               crossAxisAlignment: CrossAxisAlignment.start,
