@@ -7,13 +7,10 @@ import 'package:rocketspacex/config/routes/go_router_provider.dart';
 import 'package:rocketspacex/features/rocket/presentation/rocket_bloc/rocket_bloc.dart';
 import 'package:rocketspacex/injection.dart';
 
-void main() async{
+void main() {
   configureDependencies();
   WidgetsFlutterBinding.ensureInitialized();
-  HydratedBloc.storage = await HydratedStorage.build(
-    storageDirectory: kIsWeb
-        ? HydratedStorage.webStorageDirectory
-        : await getTemporaryDirectory(),);
+ 
 
   
   runApp(const MyApp());
