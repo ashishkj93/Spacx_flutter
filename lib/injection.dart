@@ -1,11 +1,9 @@
 import 'package:awesome_dio_interceptor/awesome_dio_interceptor.dart';
-import 'package:connectivity_plus/connectivity_plus.dart';
+
 import 'package:dio/dio.dart';
 import 'package:dio_smart_retry/dio_smart_retry.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get_it/get_it.dart';
-import 'package:rocketspacex/core/api_constant/api_constant.dart';
-import 'package:rocketspacex/core/network/interceptors/internet_connectivity_interceptor/retry_interceptor.dart';
 import 'package:rocketspacex/features/rocket/data/data_sources/remote/rocket_api_service.dart';
 import 'package:rocketspacex/features/rocket/data/repository/rocket_repository_impl.dart';
 import 'package:rocketspacex/features/rocket/domain/repository/rocket_repository.dart';
@@ -14,7 +12,6 @@ import 'package:rocketspacex/features/rocket/domain/usecases/get_rocket_details.
 import 'package:rocketspacex/features/rocket/presentation/rocket_bloc/rocket_bloc.dart';
 import 'package:rocketspacex/features/rocket/presentation/rocket_details_bloc/rocket_details_bloc.dart';
 
-import 'core/network/interceptors/internet_connectivity_interceptor/dio_connectivity_request.dart';
 
 final sl = GetIt.instance;
 
@@ -68,13 +65,16 @@ class DioModule {
           
               RetryInterceptor(
   dio: dio,
-  logPrint: print, // specify log function (optional)
+  logPrint: (v){
+    print("Retry=> $v");
+  }, // specify log function (optional)
   retries: 3, // retry count (optional)
   retryDelays: const [ // set delays between retries (optional)
     Duration(seconds: 1), // wait 1 sec before first retry
     Duration(seconds: 2), // wait 2 sec before second retry
     Duration(seconds: 3), // wait 3 sec before third retry
   ],
+  //retryEvaluator: (error, attempt) => error.type != DioExceptionType.cancel && error.type != DioExceptionType.unknown,
 ),
 AwesomeDioInterceptor(
         // Disabling headers and timeout would minimize the logging output.
