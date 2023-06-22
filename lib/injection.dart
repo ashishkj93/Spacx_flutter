@@ -66,6 +66,7 @@ class DioModule {
               RetryInterceptor(
   dio: dio,
   logPrint: (v){
+    
     print("Retry=> $v");
   }, // specify log function (optional)
   retries: 3, // retry count (optional)
