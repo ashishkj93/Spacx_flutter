@@ -1,4 +1,4 @@
-import 'package:collection/collection.dart';
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'thrust_sea_level.freezed.dart';
