@@ -30,31 +30,5 @@ jobs:
           artifacts: "build/app/outputs/apk/debug/*"
           tag: v1.0.${{ github.run_number }}
           token: ${{secrets.TOKEN }}
-    web:
-        if: false
-        name: Web CI/CD
-        needs: code-analysis-and-testing
-        runs-on: ubuntu-latest
-        timeout-minutes: 30
-        steps:
-        - name: Checkout repository
-          uses: actions/checkout@v3
 
-        - name: Set up Flutter
-          uses: subosito/flutter-action@v2
-          with:
-            channel: ${{ env.FLUTTER_CHANNEL }}
-            # flutter-version: ${{ env.FLUTTER_VERSION }} # you can also specify exact version of flutter
-        
-        - name: Flutter doctor
-          run: flutter doctor # this is an optional step and can be removed
-        
-        - name: Build web
-          run: flutter build web --release
-        
-        - name: Upload web artifact 
-          uses: actions/upload-artifact@v3
-          with:
-            name: release-web
-            path: build/web/
 
