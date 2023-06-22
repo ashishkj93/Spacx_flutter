@@ -37,8 +37,8 @@ jobs:
     - name: Set up Flutter
       uses: subosito/flutter-action@v2
       with:
-        channel: ${{ env.FLUTTER_CHANNEL }}
-        # flutter-version: ${{ env.FLUTTER_VERSION }} # you can also specify exact version of flutter
+        # channel: ${{ env.FLUTTER_CHANNEL }}
+        flutter-version: ${{ env.FLUTTER_VERSION }} # you can also specify exact version of flutter
 
     - name: Get pub dependencies
       run: flutter pub get
@@ -94,6 +94,12 @@ jobs:
       with:
         name: release-aab
         path: ${{ env.PATH_TO_AAB }}
+    - name: Push to release
+      uses: ncipollo/release-action@v1
+      with:
+        artifacts: "build/app/outputs/apk/debug/*"
+        tag: v1.0.${{ github.run_number }}
+        token: ${{secrets.TOKEN }}
 
     # - name: Upload to Play Store
     #   run: |
@@ -194,7 +200,7 @@ jobs:
   #       rm -rf ~/.appstoreconnect/private_keys/
 
   web:
-    if: false
+    if: true
     name: Web CI/CD
     needs: code-analysis-and-testing
     runs-on: ubuntu-latest
