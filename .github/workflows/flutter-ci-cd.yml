@@ -21,7 +21,7 @@ env:
   FLUTTER_VERSION: '3.10.4'
   XCODE_VERSION: '14.2'
   PATH_TO_AAB: 'build/app/outputs/bundle/release/app-release.aab'
-   PATH_TO_RELEASE: 'build/app/outputs/flutter-apk/app-release.apk'
+  PATH_TO_RELEASE: 'build/app/outputs/flutter-apk/app-release.apk'
   ANDROID_PACKAGE_NAME: 'com.example.rocketspacex'
   PATH_TO_IPA: 'build/ios/ipa/rocketspacex.ipa'
 
@@ -102,13 +102,13 @@ jobs:
         artifacts: "build/app/outputs/apk/release/*"
         tag: v1.0.${{ github.run_number }}
         token: ${{secrets.TOKEN }}
-    - name: Upload artifact to Firebase App Distribution
-      uses: wzieba/Firebase-Distribution-Github-Action@v1
-      with:
-        appId: ${{secrets.FIREBASE_ANDROID_APP_ID}}
-        token: ${{secrets.FIREBASE_TOKEN}}
-        groups: tester group
-        file: ${{ env.PATH_TO_RELEASE }}
+    # - name: Upload artifact to Firebase App Distribution
+    #   uses: wzieba/Firebase-Distribution-Github-Action@v1
+    #   with:
+    #     appId: ${{secrets.FIREBASE_ANDROID_APP_ID}}
+    #     token: ${{secrets.FIREBASE_TOKEN}}
+    #     groups: tester group
+    #     file: ${{ env.PATH_TO_RELEASE }}
 
     # - name: Upload to Play Store
     #   run: |
