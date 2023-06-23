@@ -84,7 +84,7 @@ jobs:
       run: flutter doctor # this is an optional step and can be removed
     
     - name: Build AAB
-     # flutter build appbundle --release
+    
       run: |
        
          flutter build apk --release
@@ -95,7 +95,6 @@ jobs:
     - name: Upload AAB artifact
       uses: actions/upload-artifact@v3
       with:
-      # release-aab 
         name: release-apk  
         path: ${{ env.PATH_TO_RELEASE }}
     # - run: flutter build apk --release
@@ -104,7 +103,7 @@ jobs:
     #   with:
     #     artifacts: "build/app/outputs/apk/release/*"
     #     tag: v1.0.${{ github.run_number }}
-    #     token: ${{secrets.TOKEN }}
+    #     token: ${{secrets.TOKEN }}   # flutter build appbundle --release
     - name: Upload artifact to Firebase App Distribution
       uses: wzieba/Firebase-Distribution-Github-Action@v1
       with:
