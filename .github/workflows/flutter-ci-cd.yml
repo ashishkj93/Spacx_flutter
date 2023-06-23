@@ -84,10 +84,8 @@ jobs:
       run: flutter doctor # this is an optional step and can be removed
     
     - name: Build AAB
-    
       run: |
-       
-         flutter build apk --release
+        flutter build appbundle --release
 
         echo "Removing signing files for extra security"
         rm android/key.*
@@ -95,22 +93,22 @@ jobs:
     - name: Upload AAB artifact
       uses: actions/upload-artifact@v3
       with:
-        name: release-apk  
-        path: ${{ env.PATH_TO_RELEASE }}
+        name: release-aab
+        path: ${{ env.PATH_TO_AAB }}
     # - run: flutter build apk --release
     # - name: Build Release APK
     #   uses: ncipollo/release-action@v1
     #   with:
     #     artifacts: "build/app/outputs/apk/release/*"
     #     tag: v1.0.${{ github.run_number }}
-    #     token: ${{secrets.TOKEN }}   # flutter build appbundle --release
+    #     token: ${{secrets.TOKEN }}
     - name: Upload artifact to Firebase App Distribution
       uses: wzieba/Firebase-Distribution-Github-Action@v1
       with:
         appId: ${{secrets.FIREBASE_ANDROID_APP_ID}}
         token: ${{secrets.FIREBASE_TOKEN}}
         groups: tester group
-        file: ${{ env.PATH_TO_RELEASE }}
+        file: ${{ env.PATH_TO_AAB }}
 
     # - name: Upload to Play Store
     #   run: |
