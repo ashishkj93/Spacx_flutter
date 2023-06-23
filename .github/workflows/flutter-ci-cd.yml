@@ -83,7 +83,7 @@ jobs:
     - name: Flutter doctor
       run: flutter doctor # this is an optional step and can be removed
     
-    - name: Build AAB
+    - name: Build Apk
       run: |
         flutter build apk --release
 
@@ -93,7 +93,7 @@ jobs:
     - name: Upload AAB artifact
       uses: actions/upload-artifact@v3
       with:
-        name: release-aab
+        name: release-apk
         path: ${{ env.PATH_TO_RELEASE }}
     # - run: flutter build apk --release
     # - name: Build Release APK
