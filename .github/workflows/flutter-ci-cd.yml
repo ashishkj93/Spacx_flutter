@@ -85,7 +85,7 @@ jobs:
     
     - name: Build AAB
       run: |
-        flutter build appbundle --release
+        flutter build apk --release
 
         echo "Removing signing files for extra security"
         rm android/key.*
@@ -94,7 +94,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: release-aab
-        path: ${{ env.PATH_TO_AAB }}
+        path: ${{ env.PATH_TO_RELEASE }}
     # - run: flutter build apk --release
     # - name: Build Release APK
     #   uses: ncipollo/release-action@v1
@@ -108,7 +108,7 @@ jobs:
         appId: ${{secrets.FIREBASE_ANDROID_APP_ID}}
         token: ${{secrets.FIREBASE_TOKEN}}
         groups: tester group
-        file: ${{ env.PATH_TO_AAB }}
+        file: ${{ env.PATH_TO_RELEASE }}
 
     # - name: Upload to Play Store
     #   run: |
